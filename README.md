@@ -10,13 +10,13 @@
 
 ## 2 & 3. Andra och tredje felet :
 
-#### 2. Andra felet Programmet crashar när man skriver in en bokstav när man egentligen ska skriva in ett nummer i else if (choice == 2) i Program.cs filen.
+#### FEL 2: Programmet crashar när man skriver in en bokstav när man egentligen ska skriva in ett nummer i else if (choice == 2) i Program.cs filen.
 
-#### 3. Tredje felet Programmet craschar om man skriver in ett nummer som inte finns i listan.
+
 
 ### Lade till 3 olika felhanteringar :
 
-### Första Felhanteringen :
+### FEL 2 FIX: 
 ```csharp
 string number = Console.ReadLine();
 if(!int.TryParse(number, out int _))
@@ -32,12 +32,17 @@ Console.WriteLine("Du måste skriva ett nummer");
 ```
 
 ### Andra & Tredje Felhanteringen :
+
+
+
 #### Här kollas det om användarens input är en siffra är det en siffra så gör det till en variabel som heter newnumber med datatypen int:
 ```csharp
 else if (int.TryParse(number, out int newnumber))
 ```
 
-#### Här kollar programmet om nummret som användaren skrivit in finns i listan:
+#### FEL 3: Programmet craschar om man skriver in ett nummer som inte finns i listan.
+
+#### FIX: Här kollar programmet om nummret som användaren skrivit in finns i listan:
 
 
 
