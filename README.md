@@ -55,4 +55,33 @@ else
 }
 ```
 
-##
+## Fel Fyra & Fem :
+
+#### Jag gjorde of den förra "int choice = int.tryparse(console.readline())"
+
+#### Till:
+```csharp
+string choice = Console.ReadLine();
+if(int.TryParse(choice, out int newchoice))
+```
+#### Fel 4, programmet crashar när man skriver en bokstav i menyn.
+
+#### FIX: För att checka så att det användaren skrev in verkligen var en int och om inte körs:
+
+```csharp
+else
+{
+    Console.WriteLine("Du måste skriva en siffra");
+}       
+```
+
+#### Fel 5, Skriver användaren ett nummer som inte finns så crashar programmet
+
+#### FIX: Lägger en else indeterat på samma nivå som newchoice nivån.
+
+```csharp
+else
+{
+    Console.WriteLine("Du måste välja 1-5");
+}
+```
