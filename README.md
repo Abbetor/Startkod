@@ -52,13 +52,12 @@ else if (int.TryParse(number, out int newnumber))
 
 #### FEL 3: Programmet craschar om man skriver in ett nummer som inte finns i listan.
 
-#### FIX: Här kollar programmet om nummret som användaren skrivit in finns i listan:
-
-
-
+#### FIX: Här kollar programmet om nummret som användaren skrivit in finns i listan. Listan visas som 1 2 3 så kontrollen måste börja på 1 och sluta på list.Count:
 ```csharp
-if (newnumber >= 0 && newnumber < list.Count)
-list.RemoveAt(newnumber);
+else if (newnumber >= 1 && newnumber <= list.Count)
+{
+    list.RemoveAt(newnumber);
+}
 ```
 
 
@@ -100,3 +99,4 @@ else
     Console.WriteLine("Du måste välja 1-5");
 }
 ```
+
