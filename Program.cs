@@ -1,4 +1,4 @@
-ShoppingList list = new ShoppingList("items.txt");
+ShoppingList list = new ShoppingList("items.txt", 500);
 list.Load();
 
 while (true)
@@ -27,7 +27,11 @@ while (true)
             {
                 try
                 {
-                    list.Add(new Item(name, price));
+                    if (!list.Add(new Item(name, price)))
+                    {
+                        Console.WriteLine("Varan får inte plats i budgeten och lades inte till.");
+                    }
+
                 }
                 catch (ArgumentOutOfRangeException)
                 {
