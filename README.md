@@ -190,9 +190,9 @@ catch (UnauthorizedAccessException ex)
 }
 ```
 
-#Del 2: Item och Budget tak
+# Del 2: Item och Budget tak
 
-##Item skyddar sig själv
+## Item skyddar sig själv
 
 #### Konstruktorn  i item kaster ett undantag om värdet är ogiltigt så att det aldrig kan skapes en trasing vara.
 

@@ -119,8 +119,16 @@ class ShoppingList
 
             if (parts.Length == 2 && int.TryParse(parts[0], out int price))
             {
-                items.Add(new Item(parts[1], price));
+                try
+                {
+                    items.Add(new Item(parts[1], price));
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine($"Hoppar över ogiltig rad: {line}");
+                }
             }
+
         }
     }
 }
