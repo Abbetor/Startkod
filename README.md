@@ -199,3 +199,5 @@ catch (UnauthorizedAccessException ex)
 Tomt namn blir 'ArgumentException'
 
 Negativt pris blir 'ArgumentOutOfRangeException'
+
+#### Program.cs fångar undantagen och skriver meddelande. Load hoppar över ogiltiga rader i filen.
