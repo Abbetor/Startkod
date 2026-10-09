@@ -120,3 +120,16 @@ else
 ```
 
 
+### Fel 7:
+
+#### Programmet craschar om txt filen inte finns 
+
+#### FIX: load kollar först om filen finns och om den inte finns startar programmet med en tom lista.
+
+```csharp
+if (!File.Exists(path))
+{
+    Console.WriteLine("Hittade ingen sparad lista,startar med en tom lista.");
+    return;
+}
+```
