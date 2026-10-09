@@ -5,10 +5,21 @@ class Item
     public int Price { get; set; }
 
     public Item(string name, int price)
+{
+    if (string.IsNullOrWhiteSpace(name))
     {
-        Name = name;
-        Price = price;
+        throw new ArgumentException("Namnet får inte vara tomt.", nameof(name));
     }
+
+    if (price < 0)
+    {
+        throw new ArgumentOutOfRangeException(nameof(price), "Priset får inte vara negativt.");
+    }
+
+    Name = name;
+    Price = price;
+}
+
 
     public override string ToString()
     {
