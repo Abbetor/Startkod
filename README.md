@@ -212,7 +212,7 @@ Negativt pris blir 'ArgumentOutOfRangeException'
 #### 2. Att budheten är full är inte ett fel, det räcker med att add svarar ja eller nej. 
 #### 3. Det blir enklare i program.cs, det behövs bara en if sats och inte en try/catch
 
-# Klassdiagram
+# Klassdiagram (Använde AI för att generera med mermaid)
 
 ```mermaid
 classDiagram
