@@ -100,3 +100,23 @@ else
 }
 ```
 
+## Fel 6:
+
+#### Programmet kraschar när manh skriver en bokstav som pris när man lägger till varor.
+
+#### FIX: bytte ut int.Parse till int.Tryparse så att prgorammet skriver ett meddelande i stället för att krascha:
+
+```csharp
+string priceText = Console.ReadLine();
+
+if (int.Tryparse(priceText out int price))
+{
+    list.Add(new Item(name, price));
+}
+else
+{
+    Console.WriteLine("Priset måste vara ett heltal");
+}
+```
+
+
