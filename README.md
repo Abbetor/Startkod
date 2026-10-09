@@ -133,3 +133,13 @@ if (!File.Exists(path))
     return;
 }
 ```
+
+## Fel 8:
+
+#### Total summan blir fel. Loopen i Total() började på 1 och hoppade därför över första varan.
+
+#### FIX : Gjorde så att loopen börjar på 0:
+
+```csharp
+for (int i = 0; < items.Count; i++)
+```
