@@ -19,11 +19,11 @@ Fel 9 hör ihop med load felet.
 #### Load hoppar över rader som inte kan läsas istället för att det kommer krascha. Det checkas att raden har två olika delar och att priset är ett tal
 
 ```csharp
-string[] parts = line.Split(';' 2)
+string[] parts = line.Split(';' 2);
 
 if (parts.Length == 2 && int.TryParse(parts[0], out int price))
 {
-    items.Add(new Item(parts[1], price))
+    items.Add(new Item(parts[1], price));
 }
 ```
 
