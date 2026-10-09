@@ -23,10 +23,22 @@ while (true)
             Console.Write("Pris: ");
             string priceText = Console.ReadLine();
 
-            if (int.TryParse(priceText, out int price))
+           if (int.TryParse(priceText, out int price))
             {
-                list.Add(new Item(name, price));
+                try
+                {
+                    list.Add(new Item(name, price));
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Priset får inte vara negativt.");
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine("Namnet får inte vara tomt.");
+                }
             }
+
             else
             {
                 Console.WriteLine("Priset måste vara ett heltal");
