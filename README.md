@@ -1,5 +1,15 @@
 # Felen i programmet
 
+Uppgiften har sex stycken fel, men jag har delat upp några i flera delar:
+
+Kraschar: Load(fel 1), meny/pris/nummer (fel 2, 4, 6), nummer som inte finns (fel 3 och 5),
+
+Fel resultat: totalsumman (fel 8)
+
+Döljda fel: tom catch (fel 10)
+
+Fel 9 hör ihop med load felet.
+
 ## 1. Första felet:
 
 #### Load funktionen försökte läsa den fjärde raden i items.txt men den behandlar den tomma raden som: pris;namn därför crashar den.
