@@ -212,6 +212,39 @@ Negativt pris blir 'ArgumentOutOfRangeException'
 #### 2. Att budheten är full är inte ett fel, det räcker med att add svarar ja eller nej. 
 #### 3. Det blir enklare i program.cs, det behövs bara en if sats och inte en try/catch
 
+# Klassdiagram
+
+```mermaid
+classDiagram
+    class Item {
+        +string Name
+        +int Price
+        +Item(string name, int price)
+        +ToString() string
+    }
+
+    class ShoppingList {
+        -List~Item~ items
+        -string path
+        -int budget
+        +int Count
+        +ShoppingList(string path, int budget)
+        +Add(Item item) bool
+        +RemoveAt(int number)
+        +Total() int
+        +Find(string name) Item
+        +Print()
+        +Save()
+        +Load()
+    }
+
+    class Program {
+        menyn och inmatning
+    }
+
+    Program --> ShoppingList : använder
+    ShoppingList "1" o-- "*" Item : innehåller
+```
 
 
 
