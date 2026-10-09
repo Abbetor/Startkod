@@ -201,3 +201,18 @@ Tomt namn blir 'ArgumentException'
 Negativt pris blir 'ArgumentOutOfRangeException'
 
 #### Program.cs fångar undantagen och skriver meddelande. Load hoppar över ogiltiga rader i filen.
+
+## Budgettak - varför Add ger tillbaka false
+
+#### Add returnerar false om varan inte får plats i budgeten.
+
+#### Varför false och inte ett undantag
+
+#### 1. Tomt namn eller negativt tal är ett riktigt fel därför kastar item ett undantag.
+#### 2. Att budheten är full är inte ett fel, det räcker med att add svarar ja eller nej. 
+#### 3. Det blir enklare i program.cs, det behövs bara en if sats och inte en try/catch
+
+
+
+
+
