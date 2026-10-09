@@ -14,42 +14,41 @@ while (true)
     Console.Write("Välj: ");
 
     string choice = Console.ReadLine();
-    if(int.TryParse(choice, out int newchoice))
+    if (int.TryParse(choice, out int newchoice))
     {
         if (newchoice == 1)
         {
             Console.Write("Namn: ");
             string name = Console.ReadLine();
             Console.Write("Pris: ");
-            int price = int.Parse(Console.ReadLine());
-            list.Add(new Item(name, price));
-        }
-        else if (newchoice == 2)
-        {
-            
-            //Console.Write("Nummer: ");
-            //int number = int.Parse(Console.ReadLine());
-            //list.RemoveAt(number);
+            string priceText = Console.ReadLine();
 
-            Console.Write("Nummer: ");
-            string number = Console.ReadLine();
-            if(!int.TryParse(number, out int _))
+            if (int.TryParse(priceText, out int price))
             {
-                Console.WriteLine("Du måste skriva ett nummer");
+                list.Add(new Item(name, price));
             }
             else
             {
-                if (int.TryParse(number, out int newnumber))
-                    if (newnumber >= 0 && newnumber < list.Count)
-                    list.RemoveAt(newnumber);
-                    
-                    else
-                    {
-                        Console.WriteLine("Nummret finns inte i listan");
-                    }
+                Console.WriteLine("Priset måste vara ett heltal");
             }
-            
+        }
+        else if (newchoice == 2)
+        {
+            Console.Write("Nummer: ");
+            string number = Console.ReadLine();
 
+            if (!int.TryParse(number, out int newnumber))
+            {
+                Console.WriteLine("Du måste skriva ett nummer");
+            }
+            else if (newnumber >= 1 && newnumber <= list.Count)
+            {
+                list.RemoveAt(newnumber);
+            }
+            else
+            {
+                Console.WriteLine("Nummret finns inte i listan");
+            }
         }
         else if (newchoice == 3)
         {
@@ -74,16 +73,13 @@ while (true)
         {
             break;
         }
-
         else
         {
             Console.WriteLine("Du måste välja 1-5");
         }
     }
-
     else
     {
         Console.WriteLine("Du måste skriva en siffra");
-    }       
-        
+    }
 }

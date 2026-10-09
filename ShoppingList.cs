@@ -3,7 +3,7 @@ class ShoppingList
 {
     private List<Item> items = new List<Item>();
     private string path;
-    
+
     public int Count
     {
         get { return items.Count; }
@@ -30,7 +30,7 @@ class ShoppingList
     {
         int sum = 0;
 
-        for (int i = 1; i < items.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
             sum += items[i].Price;
         }
@@ -74,25 +74,53 @@ class ShoppingList
 
         try
         {
-            File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n");
+            File.WriteAllLines(path, lines);
+            Console.WriteLine("Listan är sparad.");
         }
-        catch
+        catch (IOException ex)
         {
+            Console.WriteLine($"Kunde inte spara listan: {ex.Message}");
         }
-
-        Console.WriteLine("Listan är sparad.");
+        catch (UnauthorizedAccessException ex)
+        {
+            Console.WriteLine($"Saknar behörighet att spara listan: {ex.Message}");
+        }
     }
 
     // Reads the file back into the list.
     public void Load()
     {
-        string text = File.ReadAllText(path);
-        string[] lines = text.Split('\n');
+        if (!File.Exists(path))
+        {
+            Console.WriteLine("Hittade ingen sparad lista, startar med en tom lista.");
+            return;
+        }
+
+        string[] lines;
+
+        try
+        {
+            lines = File.ReadAllLines(path);
+        }
+        catch (IOException ex)
+        {
+            Console.WriteLine($"Kunde inte läsa listan: {ex.Message}");
+            return;
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            Console.WriteLine($"Saknar behörighet att läsa listan: {ex.Message}");
+            return;
+        }
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(';');
-            items.Add(new Item(parts[1], int.Parse(parts[0])));
+            string[] parts = line.Split(';', 2);
+
+            if (parts.Length == 2 && int.TryParse(parts[0], out int price))
+            {
+                items.Add(new Item(parts[1], price));
+            }
         }
     }
 }
