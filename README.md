@@ -189,3 +189,13 @@ catch (UnauthorizedAccessException ex)
     Console.WriteLine($"Saknar behörighet att spara listan : {ex.Message}");
 }
 ```
+
+#Del 2: Item och Budget tak
+
+##Item skyddar sig själv
+
+#### Konstruktorn  i item kaster ett undantag om värdet är ogiltigt så att det aldrig kan skapes en trasing vara.
+
+Tomt namn blir 'ArgumentException'
+
+Negativt pris blir 'ArgumentOutOfRangeException'
