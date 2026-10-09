@@ -143,3 +143,17 @@ if (!File.Exists(path))
 ```csharp
 for (int i = 0; < items.Count; i++)
 ```
+
+## FEL 9: 
+
+#### sökningen av varor hittade inte varor som syns i listan. Filen har Windows radbrytningar (\r\n) och Split ('\n') lämande kvar ett osynligt \r efter namnet. "Mjölk" blev "Mjölk\r" och då hittades den inte.
+
+#### Fix: jag la till File.ReadAllLines och File.WriteAllLines som, sköter radbrytningarna själv
+
+```csharp
+lines = File.ReadAllLines(path);
+```
+
+```csharp
+File.WriteAllLines(path, lines);
+```
