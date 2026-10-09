@@ -157,3 +157,25 @@ lines = File.ReadAllLines(path);
 ```csharp
 File.WriteAllLines(path, lines);
 ```
+
+## FEL 10:
+
+#### Save hade tom catch. om det misslyckades med sparningne såg man inget fel och programmet skrev ändå "listan är sparad."
+
+#### FIX : "Listan är sparad" skrivs ut bara när det lyckas. Catchen fångar specifika fel och skriver ut vad som gick fel
+
+```csharp
+try
+{
+    File.WriteAllLines(path, lines);
+    Console.WriteLine("Listan är sparad.");
+}
+catch (IOException ex)
+{
+    Console.WriteLine($"Kunde inte spara listan: {ex.Message}");
+}
+catch (UnauthorizedAccessException ex)
+{
+    Console.WriteLine($"Saknar behörighet att spara listan : {ex.Message}");
+}
+```
